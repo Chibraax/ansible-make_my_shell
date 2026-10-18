@@ -29,7 +29,7 @@ Including an example of how to use your role (for instance, with variables passe
       vars:
         - make_my_shell_user: myuser
       roles:
-         - ansible-make_my_shell
+         - Chibraax.ansible-make_my_shell
 
 License
 -------
