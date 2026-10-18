@@ -18,4 +18,10 @@
   ansible.builtin.command: /bin/bash /tmp/setup.sh
   args:
     creates: "{{ ansible_facts.getent_passwd[make_my_shell_user][4] }}/.oh-my-zsh/themes/chibraax1.zsh-theme"
+  register: output
+  tags: [make_my_shell]
+
+- name: Print output
+  ansible.builtin.debug:
+    msg: "{{ output.stdout_lines }}"
   tags: [make_my_shell]
