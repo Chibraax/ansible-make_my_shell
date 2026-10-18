@@ -1,0 +1,21 @@
+---
+- name: Download make_my_shell shell script as {{ make_my_shell_user }}
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/Chibraax/make_my_shell/refs/heads/main/setup.sh
+    dest: /tmp/
+    mode: '0747'
+  tags: [make_my_shell]
+
+- name: Get $HOME of {{ make_my_shell_user }}
+  ansible.builtin.getent:
+    database: passwd
+    key: "{{ make_my_shell_user }}"
+  tags: [make_my_shell]
+
+- name: Execute setup script
+  become: true
+  become_user: "{{ make_my_shell_user }}"
+  ansible.builtin.command: /bin/bash /tmp/setup.sh
+  args:
+    creates: "{{ ansible_facts.getent_passwd[make_my_shell_user][4] }}/.oh-my-zsh/themes/chibraax1.zsh-theme"
+  tags: [make_my_shell]
