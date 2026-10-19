@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Automatic shell configuration + customisation. (<https://github.com/Chibraax/ansible-make_my_shell/blob/main/tasks/main.yml>)
+Automatic shell configuration + customisation.
 
 Requirements
 ------------
