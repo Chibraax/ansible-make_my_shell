@@ -21,10 +21,10 @@
   register: output
   tags: [make_my_shell]
 
-- name: Print output
-  ansible.builtin.debug:
-    msg: "{{ output.stdout_lines }}"
-  tags: [make_my_shell]
+#- name: Print output
+#  ansible.builtin.debug:
+#    msg: "{{ output.stdout_lines }}"
+#  tags: [make_my_shell]
 
 - name: Cleaning file
   ansible.builtin.file:
