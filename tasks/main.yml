@@ -25,3 +25,9 @@
   ansible.builtin.debug:
     msg: "{{ output.stdout_lines }}"
   tags: [make_my_shell]
+
+- name: Cleaning file
+  ansible.builtin.file:
+    path: /tmp/setup.sh
+    state: absent
+  tags: [make_my_shell]
